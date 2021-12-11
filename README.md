@@ -9,10 +9,10 @@ A modern, beautiful, customizable date picker for React.
 
 ## Installation 🚀
 ```bash
-npm i react-modern-calendar-datepicker
+npm i @3hson/react-modern-calendar-datepicker
 
 # or if you prefer Yarn:
-yarn add react-modern-calendar-datepicker
+yarn add @3hson/react-modern-calendar-datepicker
 ```
 
 ## Documentation 📄

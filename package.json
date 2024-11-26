@@ -1,6 +1,6 @@
 {
   "name": "3hson-react-modern-calendar-datepicker",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "A modern, beautiful, customizable date picker for React",
   "main": "lib/index.js",
   "types": "index.d.ts",

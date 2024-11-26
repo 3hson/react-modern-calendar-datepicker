@@ -9,29 +9,29 @@ import { Header, MonthSelector, YearSelector, DaysList } from './components';
 const Calendar = React.forwardRef(
   (
     {
-      value,
+      value = null,
       onChange,
       onDisplayedDateChangeEnd,
       onDisplayedDateChangeStart,
       onDisabledDayError,
-      calendarClassName,
+      calendarClassName = '',
       calendarTodayClassName,
       calendarSelectedDayClassName,
       calendarRangeStartClassName,
       calendarRangeBetweenClassName,
       calendarRangeEndClassName,
       disabledDays,
-      colorPrimary,
-      colorPrimaryLight,
-      slideAnimationDuration,
-      minimumDate,
-      maximumDate,
+      colorPrimary = '#0eca2d',
+      colorPrimaryLight = '#cff4d5',
+      slideAnimationDuration = '0.4s',
+      minimumDate = null,
+      maximumDate = null,
       selectorStartingYear,
       selectorEndingYear,
-      locale,
+      locale = 'en',
       shouldHighlightWeekends,
-      renderFooter,
-      customDaysClassName,
+      renderFooter = () => null,
+      customDaysClassName = [],
     },
     ref,
   ) => {
@@ -48,12 +48,12 @@ const Calendar = React.forwardRef(
         /* istanbul ignore else */
         if (key === 'Tab') calendarElement.current.classList.remove('-noFocusOutline');
       };
-  
+
       /* istanbul ignore else */
       if (calendarElement.current !== null) {
         calendarElement.current.addEventListener('keyup', handleKeyUp, false);
       }
-  
+
       return () => {
         /* istanbul ignore else */
         if (calendarElement.current !== null) {
@@ -221,17 +221,5 @@ const Calendar = React.forwardRef(
   },
 );
 
-Calendar.defaultProps = {
-  minimumDate: null,
-  maximumDate: null,
-  colorPrimary: '#0eca2d',
-  colorPrimaryLight: '#cff4d5',
-  slideAnimationDuration: '0.4s',
-  calendarClassName: '',
-  locale: 'en',
-  value: null,
-  renderFooter: () => null,
-  customDaysClassName: [],
-};
 
 export { Calendar };

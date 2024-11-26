@@ -6,7 +6,15 @@ import { TYPE_SINGLE_DATE, TYPE_RANGE, TYPE_MUTLI_DATE } from './shared/constant
 
 const DatePickerInput = React.forwardRef(
   (
-    { value, inputPlaceholder, inputClassName, inputName, formatInputText, renderInput, locale },
+    {
+      value,
+      inputPlaceholder = '',
+      inputClassName = '',
+      inputName = '',
+      formatInputText = () => { },
+      renderInput = () => null,
+      locale,
+    },
     ref,
   ) => {
     const { getLanguageDigits } = useLocaleUtils(locale);
@@ -33,18 +41,18 @@ const DatePickerInput = React.forwardRef(
       const fromText = `${getLanguageDigits(putZero(from.year))
         .toString()
         .slice(yearLetterSkip)}/${getLanguageDigits(putZero(from.month))}/${getLanguageDigits(
-        putZero(from.day),
-      )}`;
+          putZero(from.day),
+        )}`;
       const toText = `${getLanguageDigits(putZero(to.year))
         .toString()
         .slice(yearLetterSkip)}/${getLanguageDigits(putZero(to.month))}/${getLanguageDigits(
-        putZero(to.day),
-      )}`;
+          putZero(to.day),
+        )}`;
       return `${fromWord} ${fromText} ${toWord} ${toText}`;
     };
 
     const getMultiDateValue = () => {
-      return value.map(date => getLanguageDigits(date.day)).join(`${digitSeparator} `);
+      return value.map((date) => getLanguageDigits(date.day)).join(`${digitSeparator} `);
     };
 
     const getValue = () => {
@@ -81,13 +89,5 @@ const DatePickerInput = React.forwardRef(
     return render();
   },
 );
-
-DatePickerInput.defaultProps = {
-  formatInputText: () => '',
-  renderInput: () => null,
-  inputPlaceholder: '',
-  inputClassName: '',
-  inputName: '',
-};
 
 export default DatePickerInput;

@@ -11,7 +11,7 @@ const DatePickerInput = React.forwardRef(
       inputPlaceholder = '',
       inputClassName = '',
       inputName = '',
-      formatInputText = () => { },
+      formatInputText = () => '',
       renderInput = () => null,
       locale,
     },
